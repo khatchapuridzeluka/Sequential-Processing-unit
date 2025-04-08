@@ -1,7 +1,6 @@
 # Sequential MIPS Processor — Verilog Implementation
 
 ### Laboratory: Computer Organization and Architecture (2024–2025)  
-**Instructor**: Luka Karoniani  
 **Submitted by**: Luka Khachapuridze
 
 ---
