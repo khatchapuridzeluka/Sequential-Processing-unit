@@ -1,0 +1,17 @@
+module instruction_ram (
+    input clk,
+    input [7:0] addr,               // 8-bit address = 256 instructions
+    output reg [31:0] data_out
+);
+
+    reg [31:0] mem [0:255];         // RAM array
+
+    initial begin
+        $readmemh("program.hex", mem);  // Load instructions at startup
+    end
+
+    always @(posedge clk) begin
+        data_out <= mem[addr];
+    end
+
+endmodule

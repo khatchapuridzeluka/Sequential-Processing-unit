@@ -1,0 +1,59 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/User/Desktop/ca_lab/midterm-project/simulation/modelsim
+vshift_register
+!s110 1743506224
+!i10b 1
+!s100 DLJUeN5e]<`AP?T;aRNMQ1
+Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
+ICK5;D6]m1Ib[1nTRjH=^02
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1743506025
+8C:/Users/User/Desktop/ca_lab/midterm-project/shift_register.v
+FC:/Users/User/Desktop/ca_lab/midterm-project/shift_register.v
+!i122 0
+L0 1 19
+Z3 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z4 !s108 1743506224.000000
+!s107 C:/Users/User/Desktop/ca_lab/midterm-project/shift_register.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/User/Desktop/ca_lab/midterm-project|C:/Users/User/Desktop/ca_lab/midterm-project/shift_register.v|
+!i113 1
+Z5 o-vlog01compat -work work
+Z6 !s92 -vlog01compat -work work +incdir+C:/Users/User/Desktop/ca_lab/midterm-project
+Z7 tCvgOpt 0
+vtb_shift_register
+!s110 1743506225
+!i10b 1
+!s100 ]JcC=kgjBjcMTYDBYMR0I0
+R1
+I8OYFh4V]c=RX]2IXOjFbB0
+R2
+R0
+w1743506043
+8C:/Users/User/Desktop/ca_lab/midterm-project/tb_shift_register.v
+FC:/Users/User/Desktop/ca_lab/midterm-project/tb_shift_register.v
+!i122 1
+L0 1 37
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/User/Desktop/ca_lab/midterm-project/tb_shift_register.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/User/Desktop/ca_lab/midterm-project|C:/Users/User/Desktop/ca_lab/midterm-project/tb_shift_register.v|
+!i113 1
+R5
+R6
+R7

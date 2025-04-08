@@ -1,0 +1,78 @@
+# Reading pref.tcl
+# do midterm_project_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/User/Desktop/ca_lab/midterm-project {C:/Users/User/Desktop/ca_lab/midterm-project/shift_register.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 15:17:04 on Apr 01,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/User/Desktop/ca_lab/midterm-project" C:/Users/User/Desktop/ca_lab/midterm-project/shift_register.v 
+# -- Compiling module shift_register
+# 
+# Top level modules:
+# 	shift_register
+# End time: 15:17:04 on Apr 01,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/User/Desktop/ca_lab/midterm-project {C:/Users/User/Desktop/ca_lab/midterm-project/tb_shift_register.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 15:17:04 on Apr 01,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/User/Desktop/ca_lab/midterm-project" C:/Users/User/Desktop/ca_lab/midterm-project/tb_shift_register.v 
+# -- Compiling module tb_shift_register
+# 
+# Top level modules:
+# 	tb_shift_register
+# End time: 15:17:05 on Apr 01,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# 
+vsim work.shift_register
+# vsim work.shift_register 
+# Start time: 15:17:11 on Apr 01,2025
+# Loading work.shift_register
+# Reopencommand error: wrong # args: should be "::AbstractDataset::fromId id"
+# wrong # args: should be "::AbstractDataset::fromId id"
+#     (procedure "::AbstractDataset::fromId" body line 1)
+#     invoked from within
+# "AbstractDataset::fromId"
+#     ("uplevel" body line 1)
+#     invoked from within
+# "uplevel AbstractDataset::fromId $id"
+#     (procedure "AbstractDatasetCreate" line 2)
+#     invoked from within
+# "AbstractDatasetCreate [$w cget -window_data]"
+#     (procedure "QStructure::ReOpenWindow" line 11)
+#     invoked from within
+# "QStructure::ReOpenWindow .main_pane.structure"
+#     ("eval" body line 1)
+#     invoked from within
+# "eval [$windowobj cget -reopencommand] $windowobj "
+vsim work.tb_shift_register
+# error on .main_pane.structure -closecommand : object "" not found
+# End time: 15:17:28 on Apr 01,2025, Elapsed time: 0:00:17
+# Errors: 0, Warnings: 0
+# vsim work.tb_shift_register 
+# Start time: 15:17:28 on Apr 01,2025
+# Loading work.tb_shift_register
+# Loading work.shift_register
+vsim work.tb_shift_register
+# End time: 15:17:41 on Apr 01,2025, Elapsed time: 0:00:13
+# Errors: 0, Warnings: 0
+# vsim work.tb_shift_register 
+# Start time: 15:17:41 on Apr 01,2025
+# Loading work.tb_shift_register
+# Loading work.shift_register
+add wave -position insertpoint sim:/tb_shift_register/*
+run
+# ** Note: $stop    : C:/Users/User/Desktop/ca_lab/midterm-project/tb_shift_register.v(35)
+#    Time: 90 ps  Iteration: 0  Instance: /tb_shift_register
+# Break in Module tb_shift_register at C:/Users/User/Desktop/ca_lab/midterm-project/tb_shift_register.v line 35
+run
+# WARNING: No extended dataflow license exists
+# End time: 15:36:35 on Apr 01,2025, Elapsed time: 0:18:54
+# Errors: 0, Warnings: 0

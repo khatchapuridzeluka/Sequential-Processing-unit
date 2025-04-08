@@ -1,0 +1,1623 @@
+Analysis & Synthesis report for midterm_project
+Thu Apr 03 09:34:05 2025
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. Registers Removed During Synthesis
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Registers Packed Into Inferred Megafunctions
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Source assignments for cpu_logic:cpu|instruction_ram:imem|altsyncram:mem_rtl_0|altsyncram_4oa1:auto_generated
+ 15. Parameter Settings for Inferred Entity Instance: cpu_logic:cpu|instruction_ram:imem|altsyncram:mem_rtl_0
+ 16. altsyncram Parameter Settings by Entity Instance
+ 17. Port Connectivity Checks: "cpu_logic:cpu|instruction_execution:comb_40"
+ 18. Port Connectivity Checks: "cpu_logic:cpu|instruction_decod:decoder"
+ 19. Post-Synthesis Netlist Statistics for Top Partition
+ 20. Elapsed Time Per Partition
+ 21. Analysis & Synthesis Messages
+ 22. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Thu Apr 03 09:34:05 2025       ;
+; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                   ; midterm_project                             ;
+; Top-level Entity Name           ; baseline_c5gx                               ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 545                                         ;
+; Total pins                      ; 236                                         ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 8,192                                       ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CGXFC5C6F27C7     ;                    ;
+; Top-level entity name                                                           ; baseline_c5gx      ; midterm_project    ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                         ;
++----------------------------------+-----------------+----------------------------------+------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                        ; File Name with Absolute Path                                                 ; Library ;
++----------------------------------+-----------------+----------------------------------+------------------------------------------------------------------------------+---------+
+; baseline_c5gx.v                  ; yes             ; User Verilog HDL File            ; C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v                 ;         ;
+; instruction_ram.v                ; yes             ; User Verilog HDL File            ; C:/Users/User/Desktop/ca_lab/midterm-project/instruction_ram.v               ;         ;
+; program.mif                      ; yes             ; User Memory Initialization File  ; C:/Users/User/Desktop/ca_lab/midterm-project/program.mif                     ;         ;
+; cpu_logic.v                      ; yes             ; User Verilog HDL File            ; C:/Users/User/Desktop/ca_lab/midterm-project/cpu_logic.v                     ;         ;
+; instruction_decod.v              ; yes             ; User Verilog HDL File            ; C:/Users/User/Desktop/ca_lab/midterm-project/instruction_decod.v             ;         ;
+; instruction_execution.v          ; yes             ; User Verilog HDL File            ; C:/Users/User/Desktop/ca_lab/midterm-project/instruction_execution.v         ;         ;
+; output_files/hex_display.v       ; yes             ; User Verilog HDL File            ; C:/Users/User/Desktop/ca_lab/midterm-project/output_files/hex_display.v      ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
+; aglobal201.inc                   ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/aglobal201.inc        ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
+; altrom.inc                       ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altrom.inc            ;         ;
+; altram.inc                       ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altram.inc            ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                     ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altdpram.inc          ;         ;
+; db/altsyncram_4oa1.tdf           ; yes             ; Auto-Generated Megafunction      ; C:/Users/User/Desktop/ca_lab/midterm-project/db/altsyncram_4oa1.tdf          ;         ;
++----------------------------------+-----------------+----------------------------------+------------------------------------------------------------------------------+---------+
+
+
++------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                      ;
++---------------------------------------------+--------------------+
+; Resource                                    ; Usage              ;
++---------------------------------------------+--------------------+
+; Estimate of Logic utilization (ALMs needed) ; 468                ;
+;                                             ;                    ;
+; Combinational ALUT usage for logic          ; 453                ;
+;     -- 7 input functions                    ; 0                  ;
+;     -- 6 input functions                    ; 331                ;
+;     -- 5 input functions                    ; 65                 ;
+;     -- 4 input functions                    ; 46                 ;
+;     -- <=3 input functions                  ; 11                 ;
+;                                             ;                    ;
+; Dedicated logic registers                   ; 545                ;
+;                                             ;                    ;
+; I/O pins                                    ; 236                ;
+; Total MLAB memory bits                      ; 0                  ;
+; Total block memory bits                     ; 8192               ;
+;                                             ;                    ;
+; Total DSP Blocks                            ; 0                  ;
+;                                             ;                    ;
+; Maximum fan-out node                        ; CLOCK_50_B5B~input ;
+; Maximum fan-out                             ; 545                ;
+; Total fan-out                               ; 5342               ;
+; Average fan-out                             ; 3.34               ;
++---------------------------------------------+--------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                  ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------+-----------------------+--------------+
+; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                   ; Entity Name           ; Library Name ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------+-----------------------+--------------+
+; |baseline_c5gx                               ; 453 (0)             ; 545 (0)                   ; 8192              ; 0          ; 236  ; 0            ; |baseline_c5gx                                                                                        ; baseline_c5gx         ; work         ;
+;    |cpu_logic:cpu|                           ; 425 (1)             ; 545 (9)                   ; 8192              ; 0          ; 0    ; 0            ; |baseline_c5gx|cpu_logic:cpu                                                                          ; cpu_logic             ; work         ;
+;       |instruction_decod:decoder|            ; 12 (12)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |baseline_c5gx|cpu_logic:cpu|instruction_decod:decoder                                                ; instruction_decod     ; work         ;
+;       |instruction_execution:comb_40|        ; 412 (412)           ; 536 (536)                 ; 0                 ; 0          ; 0    ; 0            ; |baseline_c5gx|cpu_logic:cpu|instruction_execution:comb_40                                            ; instruction_execution ; work         ;
+;       |instruction_ram:imem|                 ; 0 (0)               ; 0 (0)                     ; 8192              ; 0          ; 0    ; 0            ; |baseline_c5gx|cpu_logic:cpu|instruction_ram:imem                                                     ; instruction_ram       ; work         ;
+;          |altsyncram:mem_rtl_0|              ; 0 (0)               ; 0 (0)                     ; 8192              ; 0          ; 0    ; 0            ; |baseline_c5gx|cpu_logic:cpu|instruction_ram:imem|altsyncram:mem_rtl_0                                ; altsyncram            ; work         ;
+;             |altsyncram_4oa1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 8192              ; 0          ; 0    ; 0            ; |baseline_c5gx|cpu_logic:cpu|instruction_ram:imem|altsyncram:mem_rtl_0|altsyncram_4oa1:auto_generated ; altsyncram_4oa1       ; work         ;
+;    |hex_display:h0|                          ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |baseline_c5gx|hex_display:h0                                                                         ; hex_display           ; work         ;
+;    |hex_display:h1|                          ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |baseline_c5gx|hex_display:h1                                                                         ; hex_display           ; work         ;
+;    |hex_display:h2|                          ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |baseline_c5gx|hex_display:h2                                                                         ; hex_display           ; work         ;
+;    |hex_display:h3|                          ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |baseline_c5gx|hex_display:h3                                                                         ; hex_display           ; work         ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------+-----------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                 ;
++---------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+-------------+
+; Name                                                                                              ; Type ; Mode ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF         ;
++---------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+-------------+
+; cpu_logic:cpu|instruction_ram:imem|altsyncram:mem_rtl_0|altsyncram_4oa1:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; 256          ; 32           ; --           ; --           ; 8192 ; program.mif ;
++---------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+-------------+
+
+
++------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                 ;
++---------------------------------------------------------------+--------------------+
+; Register name                                                 ; Reason for Removal ;
++---------------------------------------------------------------+--------------------+
+; cpu_logic:cpu|instruction_execution:comb_40|registers[0][31]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[1][31]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[2][31]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[3][31]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[12][31] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[13][31] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[14][31] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[15][31] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[4][31]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[5][31]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[6][31]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[7][31]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[16][31] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[17][31] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[18][31] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[19][31] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[20][31] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[21][31] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[22][31] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[23][31] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[24][31] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[25][31] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[26][31] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[27][31] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[28][31] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[29][31] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[30][31] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[31][31] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[8][31]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[9][31]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[10][31] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[11][31] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[0][30]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[1][30]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[2][30]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[3][30]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[12][30] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[13][30] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[14][30] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[15][30] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[4][30]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[5][30]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[6][30]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[7][30]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[16][30] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[17][30] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[18][30] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[19][30] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[20][30] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[21][30] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[22][30] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[23][30] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[24][30] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[25][30] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[26][30] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[27][30] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[28][30] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[29][30] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[30][30] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[31][30] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[8][30]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[9][30]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[10][30] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[11][30] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[0][29]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[1][29]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[2][29]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[3][29]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[12][29] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[13][29] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[14][29] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[15][29] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[4][29]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[5][29]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[6][29]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[7][29]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[16][29] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[17][29] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[18][29] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[19][29] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[20][29] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[21][29] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[22][29] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[23][29] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[24][29] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[25][29] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[26][29] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[27][29] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[28][29] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[29][29] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[30][29] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[31][29] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[8][29]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[9][29]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[10][29] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[11][29] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[0][28]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[1][28]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[2][28]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[3][28]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[12][28] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[13][28] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[14][28] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[15][28] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[4][28]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[5][28]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[6][28]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[7][28]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[16][28] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[17][28] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[18][28] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[19][28] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[20][28] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[21][28] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[22][28] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[23][28] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[24][28] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[25][28] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[26][28] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[27][28] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[28][28] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[29][28] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[30][28] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[31][28] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[8][28]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[9][28]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[10][28] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[11][28] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[0][27]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[1][27]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[2][27]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[3][27]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[12][27] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[13][27] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[14][27] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[15][27] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[4][27]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[5][27]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[6][27]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[7][27]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[16][27] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[17][27] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[18][27] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[19][27] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[20][27] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[21][27] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[22][27] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[23][27] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[24][27] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[25][27] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[26][27] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[27][27] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[28][27] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[29][27] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[30][27] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[31][27] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[8][27]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[9][27]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[10][27] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[11][27] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[0][26]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[1][26]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[2][26]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[3][26]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[12][26] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[13][26] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[14][26] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[15][26] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[4][26]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[5][26]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[6][26]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[7][26]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[16][26] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[17][26] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[18][26] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[19][26] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[20][26] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[21][26] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[22][26] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[23][26] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[24][26] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[25][26] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[26][26] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[27][26] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[28][26] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[29][26] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[30][26] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[31][26] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[8][26]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[9][26]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[10][26] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[11][26] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[0][25]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[1][25]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[2][25]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[3][25]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[12][25] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[13][25] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[14][25] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[15][25] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[4][25]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[5][25]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[6][25]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[7][25]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[16][25] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[17][25] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[18][25] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[19][25] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[20][25] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[21][25] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[22][25] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[23][25] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[24][25] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[25][25] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[26][25] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[27][25] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[28][25] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[29][25] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[30][25] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[31][25] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[8][25]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[9][25]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[10][25] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[11][25] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[0][24]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[1][24]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[2][24]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[3][24]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[12][24] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[13][24] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[14][24] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[15][24] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[4][24]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[5][24]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[6][24]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[7][24]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[16][24] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[17][24] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[18][24] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[19][24] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[20][24] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[21][24] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[22][24] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[23][24] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[24][24] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[25][24] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[26][24] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[27][24] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[28][24] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[29][24] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[30][24] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[31][24] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[8][24]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[9][24]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[10][24] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[11][24] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[0][23]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[1][23]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[2][23]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[3][23]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[12][23] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[13][23] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[14][23] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[15][23] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[4][23]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[5][23]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[6][23]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[7][23]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[16][23] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[17][23] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[18][23] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[19][23] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[20][23] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[21][23] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[22][23] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[23][23] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[24][23] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[25][23] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[26][23] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[27][23] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[28][23] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[29][23] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[30][23] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[31][23] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[8][23]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[9][23]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[10][23] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[11][23] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[0][22]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[1][22]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[2][22]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[3][22]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[12][22] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[13][22] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[14][22] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[15][22] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[4][22]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[5][22]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[6][22]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[7][22]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[16][22] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[17][22] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[18][22] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[19][22] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[20][22] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[21][22] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[22][22] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[23][22] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[24][22] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[25][22] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[26][22] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[27][22] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[28][22] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[29][22] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[30][22] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[31][22] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[8][22]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[9][22]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[10][22] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[11][22] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[0][21]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[1][21]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[2][21]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[3][21]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[12][21] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[13][21] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[14][21] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[15][21] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[4][21]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[5][21]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[6][21]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[7][21]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[16][21] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[17][21] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[18][21] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[19][21] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[20][21] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[21][21] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[22][21] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[23][21] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[24][21] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[25][21] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[26][21] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[27][21] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[28][21] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[29][21] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[30][21] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[31][21] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[8][21]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[9][21]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[10][21] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[11][21] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[0][20]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[1][20]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[2][20]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[3][20]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[12][20] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[13][20] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[14][20] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[15][20] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[4][20]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[5][20]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[6][20]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[7][20]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[16][20] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[17][20] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[18][20] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[19][20] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[20][20] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[21][20] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[22][20] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[23][20] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[24][20] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[25][20] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[26][20] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[27][20] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[28][20] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[29][20] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[30][20] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[31][20] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[8][20]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[9][20]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[10][20] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[11][20] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[0][19]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[1][19]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[2][19]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[3][19]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[12][19] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[13][19] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[14][19] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[15][19] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[4][19]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[5][19]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[6][19]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[7][19]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[16][19] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[17][19] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[18][19] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[19][19] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[20][19] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[21][19] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[22][19] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[23][19] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[24][19] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[25][19] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[26][19] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[27][19] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[28][19] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[29][19] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[30][19] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[31][19] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[8][19]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[9][19]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[10][19] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[11][19] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[0][18]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[1][18]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[2][18]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[3][18]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[12][18] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[13][18] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[14][18] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[15][18] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[4][18]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[5][18]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[6][18]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[7][18]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[16][18] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[17][18] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[18][18] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[19][18] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[20][18] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[21][18] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[22][18] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[23][18] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[24][18] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[25][18] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[26][18] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[27][18] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[28][18] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[29][18] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[30][18] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[31][18] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[8][18]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[9][18]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[10][18] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[11][18] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[0][17]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[1][17]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[2][17]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[3][17]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[12][17] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[13][17] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[14][17] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[15][17] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[4][17]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[5][17]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[6][17]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[7][17]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[16][17] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[17][17] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[18][17] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[19][17] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[20][17] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[21][17] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[22][17] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[23][17] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[24][17] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[25][17] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[26][17] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[27][17] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[28][17] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[29][17] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[30][17] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[31][17] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[8][17]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[9][17]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[10][17] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[11][17] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[0][16]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[1][16]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[2][16]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[3][16]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[12][16] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[13][16] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[14][16] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[15][16] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[4][16]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[5][16]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[6][16]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[7][16]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[16][16] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[17][16] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[18][16] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[19][16] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[20][16] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[21][16] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[22][16] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[23][16] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[24][16] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[25][16] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[26][16] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[27][16] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[28][16] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[29][16] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[30][16] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[31][16] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[8][16]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[9][16]  ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[10][16] ; Lost fanout        ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[11][16] ; Lost fanout        ;
+; Total Number of Removed Registers = 512                       ;                    ;
++---------------------------------------------------------------+--------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                        ;
++--------------------------------------------------------------+--------------------+----------------------------------------------------------------+
+; Register name                                                ; Reason for Removal ; Registers Removed due to This Register                         ;
++--------------------------------------------------------------+--------------------+----------------------------------------------------------------+
+; cpu_logic:cpu|instruction_execution:comb_40|registers[0][31] ; Lost Fanouts       ; cpu_logic:cpu|instruction_execution:comb_40|registers[1][31],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[12][31], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[13][31], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[4][31],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[16][31], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[17][31], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[18][31], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[19][31], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[20][31], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[21][31], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[22][31], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[23][31], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[24][31], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[25][31], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[26][31], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[28][31], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[29][31], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[8][31],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[9][31],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[10][31]  ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[0][30] ; Lost Fanouts       ; cpu_logic:cpu|instruction_execution:comb_40|registers[1][30],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[12][30], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[13][30], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[4][30],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[16][30], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[17][30], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[18][30], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[19][30], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[20][30], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[21][30], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[22][30], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[23][30], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[24][30], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[25][30], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[26][30], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[28][30], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[29][30], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[8][30],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[9][30],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[10][30]  ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[0][29] ; Lost Fanouts       ; cpu_logic:cpu|instruction_execution:comb_40|registers[1][29],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[12][29], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[13][29], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[4][29],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[16][29], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[17][29], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[18][29], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[19][29], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[20][29], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[21][29], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[22][29], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[23][29], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[24][29], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[25][29], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[26][29], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[28][29], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[29][29], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[8][29],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[9][29],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[10][29]  ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[0][28] ; Lost Fanouts       ; cpu_logic:cpu|instruction_execution:comb_40|registers[1][28],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[12][28], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[13][28], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[4][28],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[16][28], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[17][28], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[18][28], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[19][28], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[20][28], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[21][28], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[22][28], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[23][28], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[24][28], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[25][28], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[26][28], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[28][28], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[29][28], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[8][28],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[9][28],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[10][28]  ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[0][27] ; Lost Fanouts       ; cpu_logic:cpu|instruction_execution:comb_40|registers[1][27],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[12][27], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[13][27], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[4][27],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[16][27], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[17][27], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[18][27], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[19][27], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[20][27], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[21][27], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[22][27], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[23][27], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[24][27], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[25][27], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[26][27], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[28][27], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[29][27], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[8][27],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[9][27],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[10][27]  ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[0][26] ; Lost Fanouts       ; cpu_logic:cpu|instruction_execution:comb_40|registers[1][26],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[12][26], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[13][26], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[4][26],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[16][26], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[17][26], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[18][26], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[19][26], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[20][26], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[21][26], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[22][26], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[23][26], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[24][26], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[25][26], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[26][26], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[28][26], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[29][26], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[8][26],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[9][26],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[10][26]  ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[0][25] ; Lost Fanouts       ; cpu_logic:cpu|instruction_execution:comb_40|registers[1][25],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[12][25], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[13][25], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[4][25],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[16][25], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[17][25], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[18][25], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[19][25], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[20][25], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[21][25], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[22][25], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[23][25], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[24][25], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[25][25], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[26][25], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[28][25], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[29][25], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[8][25],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[9][25],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[10][25]  ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[0][24] ; Lost Fanouts       ; cpu_logic:cpu|instruction_execution:comb_40|registers[1][24],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[12][24], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[13][24], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[4][24],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[16][24], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[17][24], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[18][24], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[19][24], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[20][24], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[21][24], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[22][24], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[23][24], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[24][24], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[25][24], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[26][24], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[28][24], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[29][24], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[8][24],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[9][24],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[10][24]  ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[0][23] ; Lost Fanouts       ; cpu_logic:cpu|instruction_execution:comb_40|registers[1][23],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[12][23], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[13][23], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[4][23],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[16][23], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[17][23], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[18][23], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[19][23], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[20][23], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[21][23], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[22][23], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[23][23], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[24][23], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[25][23], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[26][23], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[28][23], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[29][23], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[8][23],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[9][23],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[10][23]  ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[0][22] ; Lost Fanouts       ; cpu_logic:cpu|instruction_execution:comb_40|registers[1][22],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[12][22], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[13][22], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[4][22],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[16][22], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[17][22], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[18][22], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[19][22], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[20][22], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[21][22], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[22][22], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[23][22], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[24][22], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[25][22], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[26][22], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[28][22], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[29][22], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[8][22],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[9][22],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[10][22]  ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[0][21] ; Lost Fanouts       ; cpu_logic:cpu|instruction_execution:comb_40|registers[1][21],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[12][21], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[13][21], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[4][21],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[16][21], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[17][21], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[18][21], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[19][21], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[20][21], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[21][21], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[22][21], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[23][21], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[24][21], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[25][21], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[26][21], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[28][21], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[29][21], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[8][21],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[9][21],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[10][21]  ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[0][20] ; Lost Fanouts       ; cpu_logic:cpu|instruction_execution:comb_40|registers[1][20],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[12][20], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[13][20], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[4][20],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[16][20], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[17][20], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[18][20], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[19][20], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[20][20], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[21][20], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[22][20], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[23][20], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[24][20], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[25][20], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[26][20], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[28][20], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[29][20], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[8][20],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[9][20],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[10][20]  ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[0][19] ; Lost Fanouts       ; cpu_logic:cpu|instruction_execution:comb_40|registers[1][19],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[12][19], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[13][19], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[4][19],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[16][19], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[17][19], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[18][19], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[19][19], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[20][19], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[21][19], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[22][19], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[23][19], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[24][19], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[25][19], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[26][19], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[28][19], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[29][19], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[8][19],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[9][19],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[10][19]  ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[0][18] ; Lost Fanouts       ; cpu_logic:cpu|instruction_execution:comb_40|registers[1][18],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[12][18], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[13][18], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[4][18],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[16][18], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[17][18], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[18][18], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[19][18], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[20][18], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[21][18], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[22][18], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[23][18], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[24][18], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[25][18], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[26][18], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[28][18], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[29][18], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[8][18],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[9][18],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[10][18]  ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[0][17] ; Lost Fanouts       ; cpu_logic:cpu|instruction_execution:comb_40|registers[1][17],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[12][17], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[13][17], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[4][17],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[16][17], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[17][17], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[18][17], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[19][17], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[20][17], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[21][17], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[22][17], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[23][17], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[24][17], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[25][17], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[26][17], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[28][17], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[29][17], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[8][17],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[9][17],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[10][17]  ;
+; cpu_logic:cpu|instruction_execution:comb_40|registers[0][16] ; Lost Fanouts       ; cpu_logic:cpu|instruction_execution:comb_40|registers[1][16],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[12][16], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[13][16], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[4][16],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[16][16], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[17][16], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[18][16], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[19][16], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[20][16], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[21][16], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[22][16], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[23][16], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[24][16], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[25][16], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[26][16], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[28][16], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[29][16], ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[8][16],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[9][16],  ;
+;                                                              ;                    ; cpu_logic:cpu|instruction_execution:comb_40|registers[10][16]  ;
++--------------------------------------------------------------+--------------------+----------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 545   ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 529   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 544   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------------------------------+
+; Registers Packed Into Inferred Megafunctions                                                             ;
++----------------------------------------------------+----------------------------------------------+------+
+; Register Name                                      ; Megafunction                                 ; Type ;
++----------------------------------------------------+----------------------------------------------+------+
+; cpu_logic:cpu|instruction_ram:imem|data_out[0..31] ; cpu_logic:cpu|instruction_ram:imem|mem_rtl_0 ; RAM  ;
++----------------------------------------------------+----------------------------------------------+------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------+
+; 32:1               ; 16 bits   ; 336 LEs       ; 336 LEs              ; 0 LEs                  ; Yes        ; |baseline_c5gx|cpu_logic:cpu|instruction_execution:comb_40|regvalue[8] ;
+; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; No         ; |baseline_c5gx|cpu_logic:cpu|instruction_execution:comb_40|Mux0        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Source assignments for cpu_logic:cpu|instruction_ram:imem|altsyncram:mem_rtl_0|altsyncram_4oa1:auto_generated ;
++---------------------------------+--------------------+------+-------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                              ;
++---------------------------------+--------------------+------+-------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                               ;
++---------------------------------+--------------------+------+-------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: cpu_logic:cpu|instruction_ram:imem|altsyncram:mem_rtl_0 ;
++------------------------------------+----------------------+----------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                         ;
++------------------------------------+----------------------+----------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                      ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                   ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                 ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                 ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                               ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                      ;
+; OPERATION_MODE                     ; ROM                  ; Untyped                                      ;
+; WIDTH_A                            ; 32                   ; Untyped                                      ;
+; WIDTHAD_A                          ; 8                    ; Untyped                                      ;
+; NUMWORDS_A                         ; 256                  ; Untyped                                      ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                      ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                      ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                      ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                      ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                      ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                      ;
+; WIDTH_B                            ; 1                    ; Untyped                                      ;
+; WIDTHAD_B                          ; 1                    ; Untyped                                      ;
+; NUMWORDS_B                         ; 1                    ; Untyped                                      ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                      ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                      ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                      ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                      ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                      ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                      ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                      ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                      ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                      ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                      ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                      ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                      ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                                      ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                      ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                      ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                      ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                      ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                      ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                      ;
+; INIT_FILE                          ; program.mif          ; Untyped                                      ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                      ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                      ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                                      ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                      ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                                      ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                      ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                      ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                      ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                      ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                      ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                      ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                      ;
+; CBXI_PARAMETER                     ; altsyncram_4oa1      ; Untyped                                      ;
++------------------------------------+----------------------+----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                    ;
++-------------------------------------------+---------------------------------------------------------+
+; Name                                      ; Value                                                   ;
++-------------------------------------------+---------------------------------------------------------+
+; Number of entity instances                ; 1                                                       ;
+; Entity Instance                           ; cpu_logic:cpu|instruction_ram:imem|altsyncram:mem_rtl_0 ;
+;     -- OPERATION_MODE                     ; ROM                                                     ;
+;     -- WIDTH_A                            ; 32                                                      ;
+;     -- NUMWORDS_A                         ; 256                                                     ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                            ;
+;     -- WIDTH_B                            ; 1                                                       ;
+;     -- NUMWORDS_B                         ; 1                                                       ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                  ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                            ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                    ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                               ;
++-------------------------------------------+---------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "cpu_logic:cpu|instruction_execution:comb_40"                                                    ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port             ; Type   ; Severity ; Details                                                                             ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+; regvalue[31..16] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "cpu_logic:cpu|instruction_decod:decoder"                                              ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; optype ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 545                         ;
+;     CLR               ; 1                           ;
+;     ENA               ; 16                          ;
+;     ENA CLR           ; 528                         ;
+; arriav_io_obuf        ; 97                          ;
+; arriav_lcell_comb     ; 458                         ;
+;     arith             ; 23                          ;
+;         1 data inputs ; 6                           ;
+;         2 data inputs ; 1                           ;
+;         4 data inputs ; 16                          ;
+;     normal            ; 435                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 6                           ;
+;         2 data inputs ; 2                           ;
+;         4 data inputs ; 30                          ;
+;         5 data inputs ; 65                          ;
+;         6 data inputs ; 331                         ;
+; boundary_port         ; 236                         ;
+; stratixv_ram_block    ; 32                          ;
+;                       ;                             ;
+; Max LUT depth         ; 6.50                        ;
+; Average LUT depth     ; 3.98                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:02     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Thu Apr 03 09:33:48 2025
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off midterm_project -c midterm_project
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file baseline_c5gx.v
+    Info (12023): Found entity 1: baseline_c5gx File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 38
+Info (12021): Found 1 design units, including 1 entities, in source file instruction_ram.v
+    Info (12023): Found entity 1: instruction_ram File: C:/Users/User/Desktop/ca_lab/midterm-project/instruction_ram.v Line: 1
+Warning (10463): Verilog HDL Declaration warning at cpu_logic.v(50): "type" is SystemVerilog-2005 keyword File: C:/Users/User/Desktop/ca_lab/midterm-project/cpu_logic.v Line: 50
+Info (12021): Found 1 design units, including 1 entities, in source file cpu_logic.v
+    Info (12023): Found entity 1: cpu_logic File: C:/Users/User/Desktop/ca_lab/midterm-project/cpu_logic.v Line: 1
+Warning (10463): Verilog HDL Declaration warning at instruction_decod.v(24): "type" is SystemVerilog-2005 keyword File: C:/Users/User/Desktop/ca_lab/midterm-project/instruction_decod.v Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file instruction_decod.v
+    Info (12023): Found entity 1: instruction_decod File: C:/Users/User/Desktop/ca_lab/midterm-project/instruction_decod.v Line: 1
+Warning (10463): Verilog HDL Declaration warning at instruction_execution.v(5): "type" is SystemVerilog-2005 keyword File: C:/Users/User/Desktop/ca_lab/midterm-project/instruction_execution.v Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file instruction_execution.v
+    Info (12023): Found entity 1: instruction_execution File: C:/Users/User/Desktop/ca_lab/midterm-project/instruction_execution.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file output_files/hex_display.v
+    Info (12023): Found entity 1: hex_display File: C:/Users/User/Desktop/ca_lab/midterm-project/output_files/hex_display.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file shift_register.v
+    Info (12023): Found entity 1: shift_register File: C:/Users/User/Desktop/ca_lab/midterm-project/shift_register.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file tb_shift_register.v
+    Info (12023): Found entity 1: tb_shift_register File: C:/Users/User/Desktop/ca_lab/midterm-project/tb_shift_register.v Line: 1
+Critical Warning (10846): Verilog HDL Instantiation warning at cpu_logic.v(100): instance has no name File: C:/Users/User/Desktop/ca_lab/midterm-project/cpu_logic.v Line: 100
+Info (12127): Elaborating entity "baseline_c5gx" for the top level hierarchy
+Warning (10034): Output port "HDMI_TX_D" at baseline_c5gx.v(93) has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 93
+Warning (10034): Output port "HSMC_CLKOUT_n" at baseline_c5gx.v(111) has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 111
+Warning (10034): Output port "HSMC_CLKOUT_p" at baseline_c5gx.v(112) has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 112
+Warning (10034): Output port "LEDG" at baseline_c5gx.v(132) has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 132
+Warning (10034): Output port "LEDR" at baseline_c5gx.v(135) has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 135
+Warning (10034): Output port "SRAM_A" at baseline_c5gx.v(155) has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 155
+Warning (10034): Output port "ADC_CONVST" at baseline_c5gx.v(41) has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 41
+Warning (10034): Output port "ADC_SCK" at baseline_c5gx.v(42) has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 42
+Warning (10034): Output port "ADC_SDI" at baseline_c5gx.v(43) has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 43
+Warning (10034): Output port "AUD_DACDAT" at baseline_c5gx.v(50) has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 50
+Warning (10034): Output port "AUD_XCK" at baseline_c5gx.v(52) has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 52
+Warning (10034): Output port "HDMI_TX_CLK" at baseline_c5gx.v(92) has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 92
+Warning (10034): Output port "HDMI_TX_DE" at baseline_c5gx.v(94) has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 94
+Warning (10034): Output port "HDMI_TX_HS" at baseline_c5gx.v(95) has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 95
+Warning (10034): Output port "HDMI_TX_VS" at baseline_c5gx.v(97) has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 97
+Warning (10034): Output port "HSMC_CLKOUT0" at baseline_c5gx.v(110) has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 110
+Warning (10034): Output port "I2C_SCL" at baseline_c5gx.v(125) has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 125
+Warning (10034): Output port "SD_CLK" at baseline_c5gx.v(144) has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 144
+Warning (10034): Output port "SRAM_CE_n" at baseline_c5gx.v(156) has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 156
+Warning (10034): Output port "SRAM_LB_n" at baseline_c5gx.v(158) has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 158
+Warning (10034): Output port "SRAM_OE_n" at baseline_c5gx.v(159) has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 159
+Warning (10034): Output port "SRAM_UB_n" at baseline_c5gx.v(160) has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 160
+Warning (10034): Output port "SRAM_WE_n" at baseline_c5gx.v(161) has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 161
+Warning (10034): Output port "UART_TX" at baseline_c5gx.v(171) has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 171
+Info (12128): Elaborating entity "cpu_logic" for hierarchy "cpu_logic:cpu" File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 182
+Info (12128): Elaborating entity "instruction_ram" for hierarchy "cpu_logic:cpu|instruction_ram:imem" File: C:/Users/User/Desktop/ca_lab/midterm-project/cpu_logic.v Line: 41
+Warning (10858): Verilog HDL warning at instruction_ram.v(8): object mem used but never assigned File: C:/Users/User/Desktop/ca_lab/midterm-project/instruction_ram.v Line: 8
+Info (12128): Elaborating entity "instruction_decod" for hierarchy "cpu_logic:cpu|instruction_decod:decoder" File: C:/Users/User/Desktop/ca_lab/midterm-project/cpu_logic.v Line: 65
+Warning (10270): Verilog HDL Case Statement warning at instruction_decod.v(27): incomplete case statement has no default case item File: C:/Users/User/Desktop/ca_lab/midterm-project/instruction_decod.v Line: 27
+Warning (10776): Verilog HDL warning at instruction_decod.v(26): variable OPtypeI in static task or function OPtypeI may have unintended latch behavior File: C:/Users/User/Desktop/ca_lab/midterm-project/instruction_decod.v Line: 26
+Warning (10241): Verilog HDL Function Declaration warning at instruction_decod.v(26): function "OPtypeI" may return a Don't Care value because its output register may not be assigned a value in every possible path through the function File: C:/Users/User/Desktop/ca_lab/midterm-project/instruction_decod.v Line: 26
+Warning (10270): Verilog HDL Case Statement warning at instruction_decod.v(39): incomplete case statement has no default case item File: C:/Users/User/Desktop/ca_lab/midterm-project/instruction_decod.v Line: 39
+Warning (10776): Verilog HDL warning at instruction_decod.v(38): variable OPtypeR in static task or function OPtypeR may have unintended latch behavior File: C:/Users/User/Desktop/ca_lab/midterm-project/instruction_decod.v Line: 38
+Warning (10241): Verilog HDL Function Declaration warning at instruction_decod.v(38): function "OPtypeR" may return a Don't Care value because its output register may not be assigned a value in every possible path through the function File: C:/Users/User/Desktop/ca_lab/midterm-project/instruction_decod.v Line: 38
+Warning (10030): Net "OPtypeI" at instruction_decod.v(26) has no driver or initial value, using a default initial value '0' File: C:/Users/User/Desktop/ca_lab/midterm-project/instruction_decod.v Line: 26
+Warning (10030): Net "OPtypeR" at instruction_decod.v(38) has no driver or initial value, using a default initial value '0' File: C:/Users/User/Desktop/ca_lab/midterm-project/instruction_decod.v Line: 38
+Info (12128): Elaborating entity "instruction_execution" for hierarchy "cpu_logic:cpu|instruction_execution:comb_40" File: C:/Users/User/Desktop/ca_lab/midterm-project/cpu_logic.v Line: 100
+Warning (10230): Verilog HDL assignment warning at instruction_execution.v(37): truncated value with size 32 to match size of target (8) File: C:/Users/User/Desktop/ca_lab/midterm-project/instruction_execution.v Line: 37
+Warning (10240): Verilog HDL Always Construct warning at instruction_execution.v(22): inferring latch(es) for variable "i", which holds its previous value in one or more paths through the always construct File: C:/Users/User/Desktop/ca_lab/midterm-project/instruction_execution.v Line: 22
+Info (12128): Elaborating entity "hex_display" for hierarchy "hex_display:h0" File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 185
+Info (19000): Inferred 1 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "cpu_logic:cpu|instruction_ram:imem|mem_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to ROM
+        Info (286033): Parameter WIDTH_A set to 32
+        Info (286033): Parameter WIDTHAD_A set to 8
+        Info (286033): Parameter NUMWORDS_A set to 256
+        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_A set to NONE
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter INIT_FILE set to program.mif
+Info (12130): Elaborated megafunction instantiation "cpu_logic:cpu|instruction_ram:imem|altsyncram:mem_rtl_0"
+Info (12133): Instantiated megafunction "cpu_logic:cpu|instruction_ram:imem|altsyncram:mem_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "ROM"
+    Info (12134): Parameter "WIDTH_A" = "32"
+    Info (12134): Parameter "WIDTHAD_A" = "8"
+    Info (12134): Parameter "NUMWORDS_A" = "256"
+    Info (12134): Parameter "OUTDATA_REG_A" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "INIT_FILE" = "program.mif"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_4oa1.tdf
+    Info (12023): Found entity 1: altsyncram_4oa1 File: C:/Users/User/Desktop/ca_lab/midterm-project/db/altsyncram_4oa1.tdf Line: 28
+Warning (13039): The following bidirectional pins have no drivers
+    Warning (13040): bidirectional pin "AUD_ADCLRCK" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 48
+    Warning (13040): bidirectional pin "AUD_BCLK" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 49
+    Warning (13040): bidirectional pin "AUD_DACLRCK" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 51
+    Warning (13040): bidirectional pin "HSMC_D[0]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 113
+    Warning (13040): bidirectional pin "HSMC_D[1]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 113
+    Warning (13040): bidirectional pin "HSMC_D[2]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 113
+    Warning (13040): bidirectional pin "HSMC_D[3]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 113
+    Warning (13040): bidirectional pin "HSMC_RX_n[0]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 118
+    Warning (13040): bidirectional pin "HSMC_RX_n[1]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 118
+    Warning (13040): bidirectional pin "HSMC_RX_n[2]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 118
+    Warning (13040): bidirectional pin "HSMC_RX_n[3]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 118
+    Warning (13040): bidirectional pin "HSMC_RX_n[4]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 118
+    Warning (13040): bidirectional pin "HSMC_RX_n[5]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 118
+    Warning (13040): bidirectional pin "HSMC_RX_n[6]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 118
+    Warning (13040): bidirectional pin "HSMC_RX_n[7]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 118
+    Warning (13040): bidirectional pin "HSMC_RX_n[8]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 118
+    Warning (13040): bidirectional pin "HSMC_RX_n[9]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 118
+    Warning (13040): bidirectional pin "HSMC_RX_n[10]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 118
+    Warning (13040): bidirectional pin "HSMC_RX_n[11]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 118
+    Warning (13040): bidirectional pin "HSMC_RX_n[12]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 118
+    Warning (13040): bidirectional pin "HSMC_RX_n[13]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 118
+    Warning (13040): bidirectional pin "HSMC_RX_n[14]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 118
+    Warning (13040): bidirectional pin "HSMC_RX_n[15]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 118
+    Warning (13040): bidirectional pin "HSMC_RX_n[16]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 118
+    Warning (13040): bidirectional pin "HSMC_RX_p[0]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 119
+    Warning (13040): bidirectional pin "HSMC_RX_p[1]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 119
+    Warning (13040): bidirectional pin "HSMC_RX_p[2]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 119
+    Warning (13040): bidirectional pin "HSMC_RX_p[3]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 119
+    Warning (13040): bidirectional pin "HSMC_RX_p[4]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 119
+    Warning (13040): bidirectional pin "HSMC_RX_p[5]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 119
+    Warning (13040): bidirectional pin "HSMC_RX_p[6]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 119
+    Warning (13040): bidirectional pin "HSMC_RX_p[7]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 119
+    Warning (13040): bidirectional pin "HSMC_RX_p[8]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 119
+    Warning (13040): bidirectional pin "HSMC_RX_p[9]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 119
+    Warning (13040): bidirectional pin "HSMC_RX_p[10]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 119
+    Warning (13040): bidirectional pin "HSMC_RX_p[11]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 119
+    Warning (13040): bidirectional pin "HSMC_RX_p[12]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 119
+    Warning (13040): bidirectional pin "HSMC_RX_p[13]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 119
+    Warning (13040): bidirectional pin "HSMC_RX_p[14]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 119
+    Warning (13040): bidirectional pin "HSMC_RX_p[15]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 119
+    Warning (13040): bidirectional pin "HSMC_RX_p[16]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 119
+    Warning (13040): bidirectional pin "HSMC_TX_n[0]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 120
+    Warning (13040): bidirectional pin "HSMC_TX_n[1]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 120
+    Warning (13040): bidirectional pin "HSMC_TX_n[2]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 120
+    Warning (13040): bidirectional pin "HSMC_TX_n[3]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 120
+    Warning (13040): bidirectional pin "HSMC_TX_n[4]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 120
+    Warning (13040): bidirectional pin "HSMC_TX_n[5]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 120
+    Warning (13040): bidirectional pin "HSMC_TX_n[6]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 120
+    Warning (13040): bidirectional pin "HSMC_TX_n[7]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 120
+    Warning (13040): bidirectional pin "HSMC_TX_n[8]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 120
+    Warning (13040): bidirectional pin "HSMC_TX_n[9]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 120
+    Warning (13040): bidirectional pin "HSMC_TX_n[10]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 120
+    Warning (13040): bidirectional pin "HSMC_TX_n[11]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 120
+    Warning (13040): bidirectional pin "HSMC_TX_n[12]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 120
+    Warning (13040): bidirectional pin "HSMC_TX_n[13]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 120
+    Warning (13040): bidirectional pin "HSMC_TX_n[14]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 120
+    Warning (13040): bidirectional pin "HSMC_TX_n[15]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 120
+    Warning (13040): bidirectional pin "HSMC_TX_n[16]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 120
+    Warning (13040): bidirectional pin "HSMC_TX_p[0]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 121
+    Warning (13040): bidirectional pin "HSMC_TX_p[1]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 121
+    Warning (13040): bidirectional pin "HSMC_TX_p[2]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 121
+    Warning (13040): bidirectional pin "HSMC_TX_p[3]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 121
+    Warning (13040): bidirectional pin "HSMC_TX_p[4]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 121
+    Warning (13040): bidirectional pin "HSMC_TX_p[5]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 121
+    Warning (13040): bidirectional pin "HSMC_TX_p[6]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 121
+    Warning (13040): bidirectional pin "HSMC_TX_p[7]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 121
+    Warning (13040): bidirectional pin "HSMC_TX_p[8]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 121
+    Warning (13040): bidirectional pin "HSMC_TX_p[9]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 121
+    Warning (13040): bidirectional pin "HSMC_TX_p[10]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 121
+    Warning (13040): bidirectional pin "HSMC_TX_p[11]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 121
+    Warning (13040): bidirectional pin "HSMC_TX_p[12]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 121
+    Warning (13040): bidirectional pin "HSMC_TX_p[13]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 121
+    Warning (13040): bidirectional pin "HSMC_TX_p[14]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 121
+    Warning (13040): bidirectional pin "HSMC_TX_p[15]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 121
+    Warning (13040): bidirectional pin "HSMC_TX_p[16]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 121
+    Warning (13040): bidirectional pin "I2C_SDA" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 126
+    Warning (13040): bidirectional pin "SD_CMD" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 145
+    Warning (13040): bidirectional pin "SD_DAT[0]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 146
+    Warning (13040): bidirectional pin "SD_DAT[1]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 146
+    Warning (13040): bidirectional pin "SD_DAT[2]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 146
+    Warning (13040): bidirectional pin "SD_DAT[3]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 146
+    Warning (13040): bidirectional pin "SRAM_D[0]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 157
+    Warning (13040): bidirectional pin "SRAM_D[1]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 157
+    Warning (13040): bidirectional pin "SRAM_D[2]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 157
+    Warning (13040): bidirectional pin "SRAM_D[3]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 157
+    Warning (13040): bidirectional pin "SRAM_D[4]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 157
+    Warning (13040): bidirectional pin "SRAM_D[5]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 157
+    Warning (13040): bidirectional pin "SRAM_D[6]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 157
+    Warning (13040): bidirectional pin "SRAM_D[7]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 157
+    Warning (13040): bidirectional pin "SRAM_D[8]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 157
+    Warning (13040): bidirectional pin "SRAM_D[9]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 157
+    Warning (13040): bidirectional pin "SRAM_D[10]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 157
+    Warning (13040): bidirectional pin "SRAM_D[11]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 157
+    Warning (13040): bidirectional pin "SRAM_D[12]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 157
+    Warning (13040): bidirectional pin "SRAM_D[13]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 157
+    Warning (13040): bidirectional pin "SRAM_D[14]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 157
+    Warning (13040): bidirectional pin "SRAM_D[15]" has no driver File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 157
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "ADC_CONVST" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 41
+    Warning (13410): Pin "ADC_SCK" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 42
+    Warning (13410): Pin "ADC_SDI" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 43
+    Warning (13410): Pin "AUD_DACDAT" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 50
+    Warning (13410): Pin "AUD_XCK" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 52
+    Warning (13410): Pin "HDMI_TX_CLK" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 92
+    Warning (13410): Pin "HDMI_TX_D[0]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 93
+    Warning (13410): Pin "HDMI_TX_D[1]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 93
+    Warning (13410): Pin "HDMI_TX_D[2]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 93
+    Warning (13410): Pin "HDMI_TX_D[3]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 93
+    Warning (13410): Pin "HDMI_TX_D[4]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 93
+    Warning (13410): Pin "HDMI_TX_D[5]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 93
+    Warning (13410): Pin "HDMI_TX_D[6]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 93
+    Warning (13410): Pin "HDMI_TX_D[7]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 93
+    Warning (13410): Pin "HDMI_TX_D[8]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 93
+    Warning (13410): Pin "HDMI_TX_D[9]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 93
+    Warning (13410): Pin "HDMI_TX_D[10]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 93
+    Warning (13410): Pin "HDMI_TX_D[11]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 93
+    Warning (13410): Pin "HDMI_TX_D[12]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 93
+    Warning (13410): Pin "HDMI_TX_D[13]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 93
+    Warning (13410): Pin "HDMI_TX_D[14]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 93
+    Warning (13410): Pin "HDMI_TX_D[15]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 93
+    Warning (13410): Pin "HDMI_TX_D[16]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 93
+    Warning (13410): Pin "HDMI_TX_D[17]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 93
+    Warning (13410): Pin "HDMI_TX_D[18]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 93
+    Warning (13410): Pin "HDMI_TX_D[19]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 93
+    Warning (13410): Pin "HDMI_TX_D[20]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 93
+    Warning (13410): Pin "HDMI_TX_D[21]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 93
+    Warning (13410): Pin "HDMI_TX_D[22]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 93
+    Warning (13410): Pin "HDMI_TX_D[23]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 93
+    Warning (13410): Pin "HDMI_TX_DE" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 94
+    Warning (13410): Pin "HDMI_TX_HS" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 95
+    Warning (13410): Pin "HDMI_TX_VS" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 97
+    Warning (13410): Pin "HSMC_CLKOUT0" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 110
+    Warning (13410): Pin "HSMC_CLKOUT_n[1]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 111
+    Warning (13410): Pin "HSMC_CLKOUT_n[2]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 111
+    Warning (13410): Pin "HSMC_CLKOUT_p[1]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 112
+    Warning (13410): Pin "HSMC_CLKOUT_p[2]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 112
+    Warning (13410): Pin "I2C_SCL" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 125
+    Warning (13410): Pin "LEDG[0]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 132
+    Warning (13410): Pin "LEDG[1]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 132
+    Warning (13410): Pin "LEDG[2]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 132
+    Warning (13410): Pin "LEDG[3]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 132
+    Warning (13410): Pin "LEDG[4]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 132
+    Warning (13410): Pin "LEDG[5]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 132
+    Warning (13410): Pin "LEDG[6]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 132
+    Warning (13410): Pin "LEDG[7]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 132
+    Warning (13410): Pin "LEDR[0]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 135
+    Warning (13410): Pin "LEDR[1]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 135
+    Warning (13410): Pin "LEDR[2]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 135
+    Warning (13410): Pin "LEDR[3]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 135
+    Warning (13410): Pin "LEDR[4]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 135
+    Warning (13410): Pin "LEDR[5]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 135
+    Warning (13410): Pin "LEDR[6]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 135
+    Warning (13410): Pin "LEDR[7]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 135
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 135
+    Warning (13410): Pin "LEDR[9]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 135
+    Warning (13410): Pin "SD_CLK" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 144
+    Warning (13410): Pin "SRAM_A[0]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 155
+    Warning (13410): Pin "SRAM_A[1]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 155
+    Warning (13410): Pin "SRAM_A[2]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 155
+    Warning (13410): Pin "SRAM_A[3]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 155
+    Warning (13410): Pin "SRAM_A[4]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 155
+    Warning (13410): Pin "SRAM_A[5]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 155
+    Warning (13410): Pin "SRAM_A[6]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 155
+    Warning (13410): Pin "SRAM_A[7]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 155
+    Warning (13410): Pin "SRAM_A[8]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 155
+    Warning (13410): Pin "SRAM_A[9]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 155
+    Warning (13410): Pin "SRAM_A[10]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 155
+    Warning (13410): Pin "SRAM_A[11]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 155
+    Warning (13410): Pin "SRAM_A[12]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 155
+    Warning (13410): Pin "SRAM_A[13]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 155
+    Warning (13410): Pin "SRAM_A[14]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 155
+    Warning (13410): Pin "SRAM_A[15]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 155
+    Warning (13410): Pin "SRAM_A[16]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 155
+    Warning (13410): Pin "SRAM_A[17]" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 155
+    Warning (13410): Pin "SRAM_CE_n" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 156
+    Warning (13410): Pin "SRAM_LB_n" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 158
+    Warning (13410): Pin "SRAM_OE_n" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 159
+    Warning (13410): Pin "SRAM_UB_n" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 160
+    Warning (13410): Pin "SRAM_WE_n" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 161
+    Warning (13410): Pin "UART_TX" is stuck at GND File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 171
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 512 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file C:/Users/User/Desktop/ca_lab/midterm-project/output_files/midterm_project.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 27 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "ADC_SDO" File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 44
+    Warning (15610): No output dependent on input pin "AUD_ADCDAT" File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 47
+    Warning (15610): No output dependent on input pin "CLOCK_125_p" File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 55
+    Warning (15610): No output dependent on input pin "CLOCK_50_B6A" File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 57
+    Warning (15610): No output dependent on input pin "CLOCK_50_B7A" File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 58
+    Warning (15610): No output dependent on input pin "CLOCK_50_B8A" File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 59
+    Warning (15610): No output dependent on input pin "CPU_RESET_n" File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 62
+    Warning (15610): No output dependent on input pin "HDMI_TX_INT" File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 96
+    Warning (15610): No output dependent on input pin "HSMC_CLKIN0" File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 107
+    Warning (15610): No output dependent on input pin "HSMC_CLKIN_n[1]" File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 108
+    Warning (15610): No output dependent on input pin "HSMC_CLKIN_n[2]" File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 108
+    Warning (15610): No output dependent on input pin "HSMC_CLKIN_p[1]" File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 109
+    Warning (15610): No output dependent on input pin "HSMC_CLKIN_p[2]" File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 109
+    Warning (15610): No output dependent on input pin "KEY[0]" File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 129
+    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 129
+    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 129
+    Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 129
+    Warning (15610): No output dependent on input pin "SW[0]" File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 164
+    Warning (15610): No output dependent on input pin "SW[1]" File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 164
+    Warning (15610): No output dependent on input pin "SW[2]" File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 164
+    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 164
+    Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 164
+    Warning (15610): No output dependent on input pin "SW[5]" File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 164
+    Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 164
+    Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 164
+    Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 164
+    Warning (15610): No output dependent on input pin "UART_RX" File: C:/Users/User/Desktop/ca_lab/midterm-project/baseline_c5gx.v Line: 167
+Info (21057): Implemented 1241 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 29 input pins
+    Info (21059): Implemented 110 output pins
+    Info (21060): Implemented 97 bidirectional pins
+    Info (21061): Implemented 973 logic cells
+    Info (21064): Implemented 32 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 249 warnings
+    Info: Peak virtual memory: 4813 megabytes
+    Info: Processing ended: Thu Apr 03 09:34:05 2025
+    Info: Elapsed time: 00:00:17
+    Info: Total CPU time (on all processors): 00:00:34
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/User/Desktop/ca_lab/midterm-project/output_files/midterm_project.map.smsg.
+
+
